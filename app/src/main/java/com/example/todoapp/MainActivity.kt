@@ -2,7 +2,7 @@ package com.example.todoapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.todoapp.ui.main.MainFragment
+import com.example.todoapp.ui.main.fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
