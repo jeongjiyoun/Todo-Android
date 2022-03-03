@@ -3,6 +3,7 @@ package com.example.todoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.GravityCompat
+import com.example.todoapp.ui.main.fragment.HomeFragment
 import com.example.todoapp.ui.main.fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_drawer)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, HomeFragment.newInstance())
                 .commitNow()
         }
     }

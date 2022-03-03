@@ -1,16 +1,10 @@
 package com.example.todoapp.ui.main.fragment
 
-import android.app.ActionBar
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
+import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.todoapp.R
-import com.example.todoapp.ui.main.viewmodel.MainViewModel
-
+import com.example.todoapp.ui.main.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
@@ -18,7 +12,12 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: HomeViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +26,11 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
+    fun onClickMenu() {
+        //navigation_view
 
     }
+
 
 }
