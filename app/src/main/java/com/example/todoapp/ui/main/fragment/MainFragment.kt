@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.todoapp.R
 import com.example.todoapp.ui.main.viewmodel.MainViewModel
+import com.example.todoapp.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
 
@@ -16,19 +17,25 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var mainViewModel: MainViewModel
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
-    fun openDrawers() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        view?.findViewById<DrawerLayout>(R.id.navigation_view)?.openDrawer(0);
+        binding.mainBtnStart.setOnClickListener { mainViewModel.onClickStartbtn() }
+        binding.mainBtnSignIn.setOnClickListener { mainViewModel.onClickSignInbtn() }
+
     }
+
 
 }
