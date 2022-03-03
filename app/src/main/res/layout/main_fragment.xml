@@ -5,11 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.fragment.MainFragment">
+    tools:context=".ui.main.fragment.MainFragment"
 
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -23,7 +24,7 @@
         tools:ignore="UseCompoundDrawables,UselessParent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/main_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
