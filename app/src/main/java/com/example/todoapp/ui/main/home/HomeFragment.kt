@@ -1,11 +1,10 @@
-package com.example.todoapp.ui.main.fragment
+package com.example.todoapp.ui.main.home
 
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.example.todoapp.databinding.HomeFragmentBinding
-import com.example.todoapp.ui.main.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
