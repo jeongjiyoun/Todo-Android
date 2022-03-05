@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.todoapp.R
+import com.example.todoapp.database.ToDoDatabase
 import com.example.todoapp.databinding.MainFragmentBinding
 import com.example.todoapp.ui.main.util.observeEvent
-import com.example.todoapp.ui.main.util.navigateTo
 
 class MainFragment : Fragment(R.layout.main_fragment) {
 
@@ -25,7 +26,12 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        mainViewModel = MainViewModel()
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = ToDoDatabase.getInstance(application).userDao
+        val viewModelFactory = MainViewModelFactory(dataSource)
+
+        mainViewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,7 +48,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         mainViewModel.destination.observeEvent(viewLifecycleOwner) {
             this.findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToHomeFragment())
-//            navigateTo(it)
         }
     }
 
