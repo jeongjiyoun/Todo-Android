@@ -39,8 +39,6 @@ class MainFragment : Fragment() {
 
     }
     private fun onClickStart(){
-        //TODO("Not yet implemented")
-
         val action = MainFragmentDirections.actionMainFragmentToHomeFragment()
 
         val navHostFragment =requireActivity().supportFragmentManager
