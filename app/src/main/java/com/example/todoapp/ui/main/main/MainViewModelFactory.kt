@@ -1,10 +1,8 @@
-package com.example.todoapp.factory
+package com.example.todoapp.ui.main.main
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.todoapp.dao.UserDao
-import com.example.todoapp.ui.main.MainViewModel
 
 class MainViewModelFactory(private val dataSource: UserDao) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")

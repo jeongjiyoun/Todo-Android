@@ -6,4 +6,6 @@
     <string name="main_start_btn">Start</string>
     <string name="main_signIn_btn">Sign In</string>
     <string name="main_title">todo mate</string>
+    <string name="des_toolbar">menu_tab</string>
+    <string name="join">가입하기</string>
 </resources>

@@ -36,8 +36,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
     buildToolsVersion '31.0.0'
 }
@@ -54,8 +55,10 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
     // Lifecycle
     def lifecycle_version = "2.3.1"

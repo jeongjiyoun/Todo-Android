@@ -1,16 +1,18 @@
-package com.example.todoapp.ui.main
+package com.example.todoapp.ui.main.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.todoapp.R
 import com.example.todoapp.database.ToDoDatabase
 import com.example.todoapp.databinding.MainFragmentBinding
-import com.example.todoapp.factory.MainViewModelFactory
+import com.example.todoapp.ui.main.util.observeEvent
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.main_fragment) {
 
     companion object {
         fun newInstance() = MainFragment()
@@ -24,23 +26,37 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
 
         val application = requireNotNull(this.activity).application
-
-        // Create an instance of the ViewModel Factory.
         val dataSource = ToDoDatabase.getInstance(application).userDao
         val viewModelFactory = MainViewModelFactory(dataSource)
 
         mainViewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.mainBtnStart.setOnClickListener { mainViewModel.onClickStartbtn() }
-        binding.mainBtnSignIn.setOnClickListener { mainViewModel.onClickSignInbtn() }
+        binding.mainBtnStart.setOnClickListener { onClickStart() }
+        binding.mainBtnSignIn.setOnClickListener { onClickSignIn() }
+        observeLiveData()
     }
+
+    private fun observeLiveData() {
+        mainViewModel.destination.observeEvent(viewLifecycleOwner) {
+            this.findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToHomeFragment())
+        }
+    }
+
+    private fun onClickStart(){
+        mainViewModel.goHome()
+    }
+
+    private fun onClickSignIn() {
+        //TODO("Not yet implemented")
+    }
+
 }
