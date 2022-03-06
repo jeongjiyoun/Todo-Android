@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.database.ToDoDatabase
 import com.example.todoapp.databinding.MainFragmentBinding
+import com.example.todoapp.ui.main.util.navigateTo
 import com.example.todoapp.ui.main.util.observeEvent
 
 class MainFragment : Fragment(R.layout.main_fragment) {
@@ -46,8 +47,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private fun observeLiveData() {
         mainViewModel.destination.observeEvent(viewLifecycleOwner) {
-            this.findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToHomeFragment())
+            navigateTo(it)
         }
     }
 
