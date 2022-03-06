@@ -5,8 +5,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
-    id 'com.mikepenz.aboutlibraries.plugin'
     id 'com.google.gms.google-services'
+    id 'com.mikepenz.aboutlibraries.plugin'
 }
 
 android {
@@ -36,8 +36,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
     buildToolsVersion '31.0.0'
 }
@@ -54,8 +55,13 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
     // Lifecycle
     def lifecycle_version = "2.3.1"
