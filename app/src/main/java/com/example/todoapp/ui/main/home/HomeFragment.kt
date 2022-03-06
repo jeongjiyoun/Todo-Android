@@ -3,15 +3,10 @@ package com.example.todoapp.ui.main.home
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.todoapp.database.ToDoDatabase
 import com.example.todoapp.databinding.HomeFragmentBinding
-import com.example.todoapp.ui.main.main.MainFragmentDirections
-import com.example.todoapp.ui.main.main.MainViewModel
-import com.example.todoapp.ui.main.main.MainViewModelFactory
 import com.example.todoapp.ui.main.util.navigateTo
 import com.example.todoapp.ui.main.util.observeEvent
 
@@ -35,7 +30,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val application = requireNotNull(this.activity).application
         val dataSource = ToDoDatabase.getInstance(application).userDao
         val viewModelFactory = HomeViewModelFactory(dataSource)
@@ -67,5 +61,4 @@ class HomeFragment : Fragment() {
     private fun onClickSetting() {
         homeViewModel.goSetting()
     }
-
 }
