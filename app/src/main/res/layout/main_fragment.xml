@@ -7,14 +7,92 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables,UselessParent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_main_icon"
+            android:scaleType="fitCenter"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/melting" />
+
+        <TextView
+            android:id="@+id/main_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="@string/main_title"
+            android:textSize="34sp"
+            tools:text="todo mate" />
+
+        <TextView
+            android:id="@+id/main_subtitle_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/main_subtitle1" />
+
+        <TextView
+            android:id="@+id/main_subtitle_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/main_subtitle2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/main_btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D7DCE0E3"
+            android:text="@string/main_start_btn"
+            android:visibility="visible"
+            tools:text="Start" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/main_btn_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D7DCE0E3"
+            android:text="@string/main_signIn_btn"
+            android:visibility="visible" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

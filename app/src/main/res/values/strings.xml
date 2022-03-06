@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TodoApp</string>
+    <string name="desc_main_icon">todoIcon</string>
+    <string name="main_subtitle1">todo write, plan, collaborate, and</string>
+    <string name="main_subtitle2">get organaized - all in one tool.</string>
+    <string name="main_start_btn">Start</string>
+    <string name="main_signIn_btn">Sign In</string>
+    <string name="main_title">todo mate</string>
 </resources>
