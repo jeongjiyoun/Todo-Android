@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.todoapp.R
 
 class SettingFragment: Fragment(R.layout.setting_fragment)  {
-
+    // TO DO
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
