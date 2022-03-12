@@ -17,7 +17,7 @@ import com.example.todoapp.ui.main.util.observeEvent
 class SettingFragment: Fragment(R.layout.setting_fragment)  {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = SettingFragment()
     }
 
     private lateinit var settingViewModel: SettingViewModel
@@ -40,26 +40,13 @@ class SettingFragment: Fragment(R.layout.setting_fragment)  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         observeLiveData()
+        initRecyclerView()
     }
 
     private fun initRecyclerView(){
-  //      val adapter = GroupieAdapter()
-//        GroupieAdapter()
-//        val groupAdapter = GroupAdapter<GroupieViewHolder<*>>()
-//        binding.settingMenuRecyclerview.adapter = groupAdapter
-//        val items = listOf(
-//            HeaderItem("Header1"),
-//            TextItem("test1"),
-//            TextItem("test2"),
-//            TextItem("test3"),
-//            HeaderItem("Header2"),
-//            TextItem("test4"),
-//            TextItem("test5")
-//        )
-//        groupAdapter.update(items)
+        val settingItemAdapter = SettingItemAdapter(viewModel = settingViewModel)
+        binding.settingMenuRecyclerview.adapter = settingItemAdapter
     }
 
     private fun observeLiveData() {
