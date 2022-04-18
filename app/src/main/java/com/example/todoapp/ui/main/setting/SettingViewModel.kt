@@ -6,29 +6,47 @@ import androidx.lifecycle.ViewModel
 import com.example.todoapp.R
 import com.example.todoapp.dao.UserDao
 import com.example.todoapp.ui.main.data.SettingItem
-import com.example.todoapp.ui.main.home.HomeDestination
-import com.example.todoapp.ui.main.util.Destination
-import com.example.todoapp.ui.main.util.Event
 
 class SettingViewModel(val userDao: UserDao) : ViewModel() {
 
-    private val _destination = MutableLiveData<Event<Destination>>()
-    val destination: LiveData<Event<Destination>>
+    private val _destination = MutableLiveData<Int>()
+    val destination: LiveData<Int>
         get() = _destination
 
-    val settingItemList = listOf<SettingItem>(
-        SettingItem(id= 0, name = "", description = "", image = 1),
-        SettingItem(id= 1, name = "", description = "", image = androidx.appcompat.R.drawable.abc_btn_colored_material),
-        SettingItem(id= 2, name = "", description = "", image = 1)
+    private val _callDialogFlg = MutableLiveData<Boolean>()
+    val callDialogFlg :LiveData<Boolean>
+        get() = _callDialogFlg
 
+    val settingItemList = listOf(
+        SettingItem(id= 0, name = "계정", description = "계정", image = R.drawable.setting_item_account,value = null),
+        SettingItem(id= 1, name = "화면", description = "화면", image = R.drawable.setting_item_screen,value = null),
+        SettingItem(id= 2, name = "알림", description = "알림", image = R.drawable.setting_item_alert,value = null),
+        SettingItem(id= 3, name = "공지사항", description = "공지사항", image = R.drawable.setting_item_notice,value = null),
+        SettingItem(id= 4, name = "Premium", description = "Premium", image = R.drawable.setting_item_premium,value = null),
+        SettingItem(id= 5, name = "정보", description = "정보", image = R.drawable.setting_item_info,value = null),
+        SettingItem(id= 6, name = "문의하기", description = "문의하기", image = R.drawable.setting_item_inquiry,value = null)
     )
 
-    fun goSettingMenu(itemName: String) {
+    val settingInfoItemList = listOf(
+        SettingItem(id= 101, name = "버전", value = "1.0.0", description = "버전",image = null),
+        SettingItem(id= 102, name = "로그아웃", value = "", description = "로그아웃",image = null)
+    )
 
-        when(itemName) {
-            "A" -> _destination.postValue(Event(SettingDestination.setting))
-            "B" -> _destination.postValue(Event(SettingDestination.setting))
-
+    fun goDirection(item: SettingItem) {
+        when(item.name) {
+            "계정" -> _destination.postValue(SettingDestination.setting)
+            "화면" -> _destination.postValue(SettingDestination.setting)
+            "알림" -> _destination.postValue(SettingDestination.setting)
+            "공지사항" -> _destination.postValue(SettingDestination.setting)
+            "Premium" -> _destination.postValue(SettingDestination.setting)
+            "정보" -> _destination.postValue(SettingDestination.setting)
+            "문의하기" -> _destination.postValue(SettingDestination.setting)
+            "버전" -> return
+            "로그아웃" -> setCallFlg(callDialogFlg=true)
         }
+    }
+
+    fun setCallFlg(callDialogFlg:Boolean) {
+        _callDialogFlg.postValue(callDialogFlg)
     }
 }

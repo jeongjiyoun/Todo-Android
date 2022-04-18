@@ -9,4 +9,13 @@
     <string name="des_toolbar">menu_tab</string>
     <string name="join">가입하기</string>
     <string name="HOME_SETTING_BUTTON">settingIcon</string>
+
+    <!--로그아웃 ALERT -->
+    <string name="LOGOUT_MESSAGE">로그아웃 하시겠습니까? 회원가입하지 않은 상태로 로그아웃하게 되면 이전 정보를 접근할 수 없게 됩니다.</string>
+    <string name="LOGOUT_CANCEL">취소</string>
+    <string name="LOGOUT_CONFIRM">로그아웃</string>
+    <string name="SETTING_MENU_ICON_NAME">menu_item_icon</string>
+    <string name="SETTING_LIST_GONEXTMENU_DESC">goNextMenu</string>
+
+
 </resources>

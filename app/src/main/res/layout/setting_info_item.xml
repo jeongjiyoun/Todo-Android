@@ -1,51 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center_vertical">
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
+        android:gravity="center_vertical"
+        android:minWidth="?android:width"
+        android:minHeight="44dp">
 
-        <ImageView
-            android:id="@+id/setting_menu_icon"
+        <TextView
+            android:id="@+id/setting_info_key"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="menu_item_icon"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="start"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@android:drawable/ic_popup_sync" />
+            tools:text="Version" />
 
         <TextView
-            android:id="@+id/setting_menu_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/setting_menu_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="MENU_NAME" />
-
-        <ImageView
-            android:id="@+id/setting_menu_next"
+            android:id="@+id/setting_info_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="goNextMenu"
-            android:rotation="180"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="end"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_arrow_left" />
-
+            tools:text="1.0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</RelativeLayout>
