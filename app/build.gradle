@@ -10,12 +10,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.todoapp"
-        minSdk 31
-        targetSdk 31
+        minSdk 33
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -41,6 +41,10 @@ android {
         dataBinding = true
     }
     buildToolsVersion '31.0.0'
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -135,4 +139,9 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.4.2'
     implementation 'androidx.room:room-runtime:2.4.2'
     kapt "androidx.room:room-compiler:2.4.2"
+
+    // Groupie
+    def groupie_version = "2.9.0"
+    implementation "com.github.lisawray.groupie:groupie:$groupie_version"
+    implementation "com.github.lisawray.groupie:groupie-databinding:$groupie_version"
 }
